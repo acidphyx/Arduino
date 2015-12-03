@@ -62,16 +62,19 @@ void updateDisp(){
   for(byte j=0; j<4; j++){
     // Turn Digit Off
     digitalWrite(digitPins[j], LOW);
+  }
   // Bring Latch Pin (to Shift Reg) Low to Signal Incoming Data.
   digitalWrite(latchPin, LOW);  
   // Shift Out an All True Byte Pattern to Clear the Buffer.
   shiftOut(dataPin, clockPin, MSBFIRST, B11111111);
   // Bring Latch Pin(to Shift Reg) High to Signal Data Transmission Complete.
   digitalWrite(latchPin, HIGH);
+  
   // Delay for 100 Microseconds
   delayMicroseconds(100);
   // Turn Digit On
   digitalWrite(digitPins[digitScan], HIGH); 
+  
   // Bring Latch Pin (to Shift Reg) Low to Signal Incoming Data
   digitalWrite(latchPin, LOW);
   // Digit Scan ranges 0-3. Use this condition to place the Decimal Point
@@ -86,16 +89,16 @@ void updateDisp(){
   digitScan++;
   // Check if we need to reset the DigitScan var to 0
   if(digitScan>3){ digitScan=0; }
-  }
 }
  
 void loop(){
-  for(int z=0;z<39;z++){
+  for(int z=0;z<=28;z++){
+    
     digitBuffer[3] = digit[z];
     digitBuffer[2] = digit[z];
     digitBuffer[1] = digit[z];
     digitBuffer[0] = digit[z];
     updateDisp();
-    delay(2);
+    delay(200);
   }
 }
