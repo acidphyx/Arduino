@@ -1,2 +1,2 @@
 # Arduino
-My Project Relating to Arduino and MCU/AVR Programming
+My Projects Relating to Arduino and MCU/AVR Programming
