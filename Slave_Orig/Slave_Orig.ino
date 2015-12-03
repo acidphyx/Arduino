@@ -23,9 +23,7 @@ const byte digit[10] =      //seven segment digits in bits
 };
 int digitBuffer[4] = {
   0};
-int digitScan = 0, flag=0,  soft_scaler = 0;
-;
-float tempK, tempC, tempF, temp;
+int digitScan = 0;
  
 void setup(){                
   for(int i=0;i<4;i++)
@@ -61,10 +59,10 @@ void updateDisp(){
 }
  
 void loop(){ 
-  digitBuffer[3] = int(tempC)/1000;
-  digitBuffer[2] = (int(tempC)%1000)/100;
-  digitBuffer[1] = (int(tempC)%100)/10;
-  digitBuffer[0] = (int(tempC)%100)%10;
+  digitBuffer[3] = 1;
+  digitBuffer[2] = 1;
+  digitBuffer[1] = 1;
+  digitBuffer[0] = 1;
   updateDisp();
   delay(2);
 }
