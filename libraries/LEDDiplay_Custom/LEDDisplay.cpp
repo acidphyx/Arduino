@@ -159,10 +159,10 @@ bool LEDDisplay::DisplayThis(char Message[]){
 				DigitIndex = 28;
 				break;
 			default:
-				// Error State
+				DigitIndex = 0;
 				break;
 		}
-		this->_digitBuffer[CharIndex] = this->_digit[DigitIndex];
+		this->_digitBuffer[CharIndex] = DigitIndex;		Serial.println(this->_digitBuffer[CharIndex]);
 	}
 	return true;
 }
