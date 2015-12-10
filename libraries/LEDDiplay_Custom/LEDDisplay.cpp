@@ -162,7 +162,7 @@ bool LEDDisplay::DisplayThis(char Message[]){
 				DigitIndex = 0;
 				break;
 		}
-		this->_digitBuffer[CharIndex] = DigitIndex;		Serial.println(this->_digitBuffer[CharIndex]);
+		this->_digitBuffer[CharIndex] = DigitIndex;		//Serial.println(this->_digitBuffer[CharIndex]);
 	}
 	return true;
 }
