@@ -18,6 +18,7 @@ class LEDDisplay
 	void UpdateDisplay();
 	bool DisplayThis(char Message[]);
 	bool SetDecimalPoint(int DecIndex, bool IsShown); // Manipulates _decimalLocation Array turning on/off each digits Decimal Place
+	char* _currentMessage[4]; // Hold Character Array that Represents the currently Displayed Message
   private:
 	// Private Properties
 	int _clockPin; // Clock Pin to Shift Register
@@ -27,7 +28,7 @@ class LEDDisplay
 	int _digitScan = 0; // Hold Digit Index currently being Updated by UpdateDisplay Method
 	int _digitBuffer[4] = {0}; // Holds what byte to display in which place.
 	bool _decimalLocation[4] = {false, false, false, false}; // Hold Array of TRUE/FALSE values representing whether or not to turn on the decimal place for the digit relative to array index.
-	char* _currentMessage[4]; // Hold Character Array that Represents the currently Displayed Message
+	
 	const byte _digit[30] =      //seven segment digits in bits
 	{
 	  B00111111, //0
@@ -56,7 +57,8 @@ class LEDDisplay
 	  B01100111, //q - 23
 	  B01010000, //r - 24
 	  B01101101, //S - 25
-	  B01000110, //t - 26
+	  B01111000, //t - 26	  
+//	  B01000110, //t - 26
 	  B00011100, //u - 27
 	  B01100110, //y - 28
 	  B00000000  //Digit OFF

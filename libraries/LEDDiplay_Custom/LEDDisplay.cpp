@@ -158,6 +158,9 @@ bool LEDDisplay::DisplayThis(char Message[]){
 			case 'y':
 				DigitIndex = 28;
 				break;
+			case 'k':
+				DigitIndex = 29;
+				break;
 			default:
 				DigitIndex = 0;
 				break;
